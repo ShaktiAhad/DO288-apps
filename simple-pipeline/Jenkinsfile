@@ -25,19 +25,15 @@ pipeline {
 
          stage('stage 2') {
             steps {
-                scripts {
                     sh 'echo hello from stage 2!'
-                }
              }
           }
 
         stage('manual approval'){
            steps {
-               scripts {
-                   timeout(time: 60, unit: 'MINUTES') {
-                     input message: "Move to stage 3?"
-                   }
-                }
+               timeout(time: 60, unit: 'MINUTES') {
+                   input message: "Move to stage 3?"
+                } 
            }
         }
 
